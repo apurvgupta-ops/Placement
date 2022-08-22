@@ -36,21 +36,53 @@
 
 // _________________________________________________________
 // Recursive approch
+// #include <iostream>
+// using namespace std;
+
+// void reverseArray(int arr[], int start, int end)
+// {
+//     // edge case
+//     if (start >= end)
+//     {
+//         return;
+//     }
+//     int temp = arr[start];
+//     arr[start] = arr[end];
+//     arr[end] = temp;
+
+//     reverseArray(arr, start + 1, end - 1);
+// }
+
+// void printArray(int arr[], int n)
+// {
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << arr[i] << " ";
+//     }
+//     cout << endl;
+// }
+
+// int main()
+// {
+//     int arr[] = {1, 2, 3, 4, 5};
+//     int n = sizeof(arr) / sizeof(arr[0]);
+//     printArray(arr, n);
+//     reverseArray(arr, 0, n - 1);
+//     printArray(arr, n);
+// }
+
+// _________________________________________________________
+// Reverse Traversing
 #include <iostream>
 using namespace std;
 
-void reverseArray(int arr[], int start, int end)
+void array(int arr[], int n)
 {
-    // edge case
-    if (start >= end)
+    for (int i = n - 1; i >= 0; i--)
     {
-        return;
+        cout << arr[i] << " ";
     }
-    int temp = arr[start];
-    arr[start] = arr[end];
-    arr[end] = temp;
-
-    reverseArray(arr, start + 1, end - 1);
+    cout << endl;
 }
 
 void printArray(int arr[], int n)
@@ -67,6 +99,6 @@ int main()
     int arr[] = {1, 2, 3, 4, 5};
     int n = sizeof(arr) / sizeof(arr[0]);
     printArray(arr, n);
-    reverseArray(arr, 0, n - 1);
+    array(arr, n);
     printArray(arr, n);
 }

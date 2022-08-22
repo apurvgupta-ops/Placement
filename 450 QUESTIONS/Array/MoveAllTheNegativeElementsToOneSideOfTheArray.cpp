@@ -1,5 +1,4 @@
 // method 1: Sorting
-
 // #include <iostream>
 // #include <algorithm>
 // using namespace std;

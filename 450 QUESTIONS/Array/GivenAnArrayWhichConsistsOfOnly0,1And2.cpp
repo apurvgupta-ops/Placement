@@ -29,17 +29,17 @@ void sorting(int arr[], int n)
     i = 0;
     while (c1 > 0)
     {
-        arr[i] = c1;
+        arr[i] = 0;
         c1--;
     }
     while (c2 > 0)
     {
-        arr[i] = c2;
+        arr[i] = 1;
         c2--;
     }
     while (c3 > 0)
     {
-        arr[i] = c3;
+        arr[i] = 2;
         c3--;
     }
 }
