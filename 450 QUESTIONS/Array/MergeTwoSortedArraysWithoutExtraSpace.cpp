@@ -81,10 +81,10 @@ void func(int arr1[], int arr2[], int n, int m)
     {
         if (arr1[i] > arr2[0])
         {
-            // swap(arr1[i], arr2[0]);
-            int temp = arr1[i];
-            arr1[i] = arr2[0];
-            arr2[0] = temp;
+            swap(arr1[i], arr2[0]);
+            // int temp = arr1[i];
+            // arr1[i] = arr2[0];
+            // arr2[0] = temp;
         }
         int k = 0;
         int secondArrayFirstElement = arr2[0];
