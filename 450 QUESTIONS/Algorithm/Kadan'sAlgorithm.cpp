@@ -12,6 +12,7 @@
 
 // Explanation:
 // The simple idea of Kadane’s algorithm is to look for all positive contiguous segments of the array ( positiveNo is used for this). And keep track of the maximum sum contiguous segment among all positive segments (sum is used for this). Each time we get a positive-sum compare it with sum and update sum if it is greater than sum
+// Time complexity  = O(n)
 
 #include <iostream>
 using namespace std;
@@ -19,17 +20,17 @@ using namespace std;
 int maxSubArraySum(int arr[], int n)
 {
     int sum = INT8_MIN;
-    int no = 0;
+    int currSum = 0;
     for (int i = 0; i < n; i++)
     {
-        no = no + arr[i];
-        if (no < 0)
+        currSum = currSum + arr[i];
+        if (currSum < 0)
         {
-            no = 0;
+            currSum = 0;
         }
-        if (sum < no)
+        if (sum < currSum)
         {
-            sum = no;
+            sum = currSum;
         }
     }
     return sum;
