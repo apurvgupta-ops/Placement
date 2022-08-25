@@ -18,6 +18,6 @@ int func(vector<int> &arr)
 
 int main()
 {
-    vector<int> arr = {7, 1, 5, 6, 4};
+    vector<int> arr = {5, 6, 7, 1, 4};
     cout << func(arr);
 }
