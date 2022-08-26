@@ -1,25 +1,25 @@
 // Method 1 (Linear Search)
-// #include <iostream>
-// using namespace std;
-// int MaximumNo(int arr[], int low, int high)
-// {
-//     int max = 0;
-//     for (int i = low; i <= high; i++)
-//     {
-//         if (arr[i] > max)
-//         {
-//             max = arr[i];
-//         }
-//     }
-//     return max;
-// }
+#include <iostream>
+using namespace std;
+int MaximumNo(int arr[], int n)
+{
+    int max = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] > max)
+        {
+            max = arr[i];
+        }
+    }
+    return max;
+}
 
-// int main()
-// {
-//     int arr[] = {1, 2, 3, 4, 5, 33, 44, 22, 11, 7};
-//     int n = sizeof(arr) / sizeof(arr[0]);
-//     cout << "max element is" << MaximumNo(arr, 0, n - 1);
-// }
+int main()
+{
+    int arr[] = {1, 2, 3, 4, 5, 33, 44, 22, 11, 7};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout << "max element is" << MaximumNo(arr, n);
+}
 
 // ________________________________________________________
 // Method 2 (Binary Search – Recursive Solution)
@@ -115,16 +115,16 @@
 // }
 
 // Method 5 Using Library functions:
-#include <iostream>
-#include <bits/stdc++.h>
-using namespace std;
-int maxNo(int arr[], int n)
-{
-    return *max_element(arr, arr + n);
-}
-int main()
-{
-    int arr[] = {1, 2, 3, 0, 5, 33, 44, 22, 11, 7};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    cout << "min element is" << maxNo(arr, n);
-}
+// #include <iostream>
+// #include <bits/stdc++.h>
+// using namespace std;
+// int maxNo(int arr[], int n)
+// {
+//     return *max_element(arr, arr + n);
+// }
+// int main()
+// {
+//     int arr[] = {1, 2, 3, 0, 5, 33, 44, 22, 11, 7};
+//     int n = sizeof(arr) / sizeof(arr[0]);
+//     cout << "min element is" << maxNo(arr, n);
+// }

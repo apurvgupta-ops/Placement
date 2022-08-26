@@ -11,14 +11,16 @@ int func(int arr[], int n)
     int count = 0;
     int ans = 0;
     sort(arr, arr + n);
-    // EDGE CASE
+    // EDGE CASE (For unique element)
     vector<int> a;
     a.push_back(arr[0]);
+
     for (int i = 1; i < n; i++)
     {
         if (arr[i] != arr[i - 1])
         {
             a.push_back(arr[i]);
+            // cout << a[i] << endl;
         }
     }
 
@@ -34,6 +36,7 @@ int func(int arr[], int n)
         }
 
         ans = max(count, ans);
+        // cout << ans;
     }
     return ans;
 }
