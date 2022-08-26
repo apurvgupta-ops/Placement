@@ -26,6 +26,7 @@ int main()
     cout << "Maximum subarray is: " << func(arr, n);
 }
 
+// __________________________________________________________
 // By Kadan's Algorithm
 // #include <iostream>
 // using namespace std;
