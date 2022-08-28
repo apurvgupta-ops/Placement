@@ -2,7 +2,8 @@
 
 //     Each student gets one packet.
 //     The difference between the number of chocolates in the packet with maximum chocolates and the packet with minimum chocolates given to the students is minimum.
-// Time complexity = O(nlogn)
+// Time Complexity : O(N *log(N))
+//  Auxiliary Space : O(1)
 
 #include <iostream>
 #include <bits/stdc++.h>
