@@ -36,6 +36,6 @@ void func(string str)
 
 int main()
 {
-    string str = "string";
+    string str = "the sky is blue";
     func(str);
 }

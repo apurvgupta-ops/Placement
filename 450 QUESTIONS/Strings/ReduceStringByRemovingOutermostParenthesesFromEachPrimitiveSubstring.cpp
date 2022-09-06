@@ -7,6 +7,9 @@
 //     Add every ‘)’ to the result if count is greater than 0, i.e. add all ‘)’ before the last ‘)’ of a primitive substring is encountered.
 //     Finally, print the resultant string obtained.
 
+// Time Complexity: O(N) where n is number of elements in given string. As, we are using a loop to traverse N times so it will cost us O(N) time
+// Auxiliary Space: O(N), as we are using extra space for stack.
+
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
