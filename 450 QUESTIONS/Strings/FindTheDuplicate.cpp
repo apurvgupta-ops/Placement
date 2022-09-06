@@ -25,7 +25,7 @@ using namespace std;
 
 int main()
 {
-    string str = "strings";
+    string str = "strrings";
     int n = str.length();
     for (int i = 0; i < n; i++)
     {
