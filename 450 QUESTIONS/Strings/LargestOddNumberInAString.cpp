@@ -8,17 +8,18 @@ using namespace std;
 string func(string str)
 {
     int n = str.length();
-    for (int i = str.length() - 1; i > 0; i--)
+    for (int i = str.length() - 1; i >= 0; i--)
     {
         if (str[i] % 2 != 0)
         {
             return str.substr(0, i + 1);
         }
     }
+    return " ";
 }
 
 int main()
 {
-    string str = "1234";
+    string str = "52";
     cout << func(str);
 }
