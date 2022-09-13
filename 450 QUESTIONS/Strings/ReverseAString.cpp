@@ -1,24 +1,24 @@
 // Time Complexity: O(N)
 // Auxiliary Space: O(N)
 
-// #include <iostream>
-// #include <bits/stdc++.h>
-// using namespace std;
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
 
-// void func(string str)
-// {
-//     char n = str.length();
-//     for (int i = n - 1; i >= 0; i--)
-//     {
-//         cout << str[i];
-//     }
-// }
+void func(string str)
+{
+    char n = str.length();
+    for (int i = n - 1; i >= 0; i--)
+    {
+        cout << str[i];
+    }
+}
 
-// int main()
-// {
-//     string str = "string";
-//     func(str);
-// }
+int main()
+{
+    string str = "hello world";
+    func(str);
+}
 
 // _____________________________________________
 // #include <iostream>
@@ -39,28 +39,6 @@
 //     string str = "the sky is blue";
 //     func(str);
 // }
-
-// __________________________________________
-#include <bits/stdc++.h>
-using namespace std;
-
-void func(string &str)
-{
-    int n = str.length();
-    for (int i = 0; i < n; i++)
-    {
-        swap(str[i], str[n - 1]);
-    }
-    for (int i = 0; i <= n; i++)
-    {
-        cout << str[i];
-    }
-}
-int main()
-{
-    string str = "ritika";
-    func(str);
-}
 
 // #include <bits/stdc++.h>
 // using namespace std;
