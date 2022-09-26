@@ -132,6 +132,18 @@ void print(Node *&head)
     cout << endl;
 }
 
+int getLength(Node *head)
+{
+    Node *temp = head;
+    int len = 0;
+    while (temp != NULL)
+    {
+        len++;
+        temp = temp->next;
+    }
+    return len;
+}
+
 int main()
 {
     Node *node1 = new Node(10);
@@ -145,4 +157,5 @@ int main()
     print(head);
     deletionAtPosition(head, 2);
     print(head);
+    cout << getLength(head);
 }
