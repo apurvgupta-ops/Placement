@@ -30,19 +30,42 @@ public:
 
 void insertAtHead(Node *&head, int data)
 {
-    Node *temp = new Node(data);
-    temp->next = head;
-    head = temp;
+    if (head == NULL)
+    {
+        Node *temp = new Node(data);
+        head = temp;
+    }
+    else
+    {
+        Node *temp = new Node(data);
+        temp->next = head;
+        head = temp;
+    }
 }
 
-void insertAtTail(Node *&tail, int data)
+void insertAtTail(Node *&head, int data)
 {
-    Node *temp = new Node(data);
-    tail->next = temp;
-    tail = tail->next;
+    Node *temp = head;
+    Node *nodeToinsert = new Node(data);
+
+    // special case for length 0
+    if (temp == NULL)
+    {
+        head = nodeToinsert;
+    }
+    else
+    {
+        // locate the last node
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+
+        temp->next = nodeToinsert;
+    }
 }
 
-void insertAtPosition(Node *&head, Node *&tail, int position, int data)
+void insertAtPosition(Node *&head, int position, int data)
 {
     // INSERT AT FIRST POSITION;
     if (position == 1)
@@ -64,32 +87,9 @@ void insertAtPosition(Node *&head, Node *&tail, int position, int data)
     // INSERT AT TAIL ;
     if (temp->next == NULL)
     {
-        insertAtTail(tail, data);
+        insertAtTail(head, data);
     }
 }
-
-// void deletionAtPosition(Node *&head, Node *&tail, int position)
-// {
-//     // DELETION FROM HEAD;
-//     Node *temp = head;
-//     if (position == 1)
-//     {
-//         head = head->next;
-//         temp->next = NULL;
-//         delete temp;
-//     }
-
-//     // DELETION FROM POSITION
-//     int count = 1;
-//     while (count < position - 1)
-//     {
-//         temp = temp->next;
-//         count++;
-//     }
-//     temp->next = temp->next->next;
-
-//     // DELETION FROM TAIL;
-// }
 
 void deletionAtPosition(Node *&head, int position)
 {
@@ -126,9 +126,11 @@ void print(Node *&head)
     Node *temp = head;
     while (temp != NULL)
     {
-        cout << temp->data << " ";
+        cout << temp->data << "->"
+             << " ";
         temp = temp->next;
     }
+    cout << "NULL";
     cout << endl;
 }
 
@@ -146,16 +148,21 @@ int getLength(Node *head)
 
 int main()
 {
-    Node *node1 = new Node(10);
-
-    Node *head = node1;
-    Node *tail = node1;
-    // print(head);
+    // Node *node1 = new Node(10);
+    // Node *head = node1;
+    // Node *tail = node1;
+    Node *head = NULL;
+    // print(head);s
     insertAtHead(head, 20);
-    insertAtTail(tail, 30);
-    insertAtPosition(head, tail, 2, 25);
+    insertAtHead(head, 20);
+    insertAtHead(head, 20);
+    insertAtHead(head, 20);
+    insertAtTail(head, 30);
+    insertAtTail(head, 50);
     print(head);
-    deletionAtPosition(head, 2);
+    insertAtPosition(head, 2, 25);
     print(head);
-    cout << getLength(head);
+    // deletionAtPosition(head, 2);
+    // print(head);
+    // cout << getLength(head);
 }
