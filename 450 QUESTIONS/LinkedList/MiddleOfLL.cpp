@@ -51,6 +51,58 @@ void appendNode(Node *&head, int data)
     }
 }
 
+int getLen(Node *&head)
+{
+    int count = 0;
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        temp = temp->next;
+        count++;
+    }
+    return count;
+}
+
+// Node *middleOfll(Node *&head)
+// {
+//     int len = getLen(head);
+//     int ans = (len / 2);
+//     Node *temp = head;
+//     int count = 0;
+//     while (count < ans)
+//     {
+//         temp = temp->next;
+//         count++;
+//     }
+//     return temp;
+// }
+
+Node *middleOfll(Node *&head)
+{
+    if (head == NULL || head->next == NULL)
+    {
+        return head;
+    }
+
+    if (head->next->next == NULL)
+    {
+        return head->next;
+    }
+
+    Node *fast = head->next;
+    Node *slow = head;
+    while (fast != NULL)
+    {
+        fast = fast->next;
+        if (fast != NULL)
+        {
+            fast = fast->next;
+        }
+        slow = slow->next;
+    }
+    return slow;
+}
+
 void print(Node *head)
 {
     Node *temp = head;
@@ -64,67 +116,6 @@ void print(Node *head)
     cout << endl;
 }
 
-// Iterative approach
-//  Node *reverseLinkedList(Node *&head)
-//  {
-//      if (head == NULL || head->next == NULL)
-//      {
-//          return head;
-//      }
-//      Node *prev = NULL;
-//      Node *curr = head;
-//      Node *forward = NULL;
-//      while (curr != NULL)
-//      {
-//          forward = curr->next;
-//          curr->next = prev;
-//          prev = curr;
-//          curr = forward;
-//      }
-//      return prev;
-//  }
-
-// Recursive approach 1;
-// void reverse(Node *&head, Node *curr, Node *prev)
-// {
-
-//     if (curr == NULL)
-//     {
-//         head = prev;
-//         return;
-//     }
-
-//     Node *forward = curr->next;
-//     reverse(head, forward, curr);
-//     curr->next = prev;
-// }
-
-// Node *reverseLinkedList(Node *&head)
-// {
-
-//     Node *curr = head;
-//     Node *prev = NULL;
-//     reverse(head, curr, prev);
-//     return head;
-// }
-
-// Recursive approach 2;
-Node *reverse(Node *&head)
-{
-    if (head == NULL || head->next == NULL)
-    {
-        return head;
-    }
-    Node *newHead = reverse(head->next);
-    head->next->next = head;
-    head->next = NULL;
-    return newHead;
-}
-Node *reverseLinkedList(Node *&head)
-{
-    return reverse(head);
-}
-
 int main()
 {
     Node *head = NULL;
@@ -136,6 +127,7 @@ int main()
     appendNode(head, 50);
     appendNode(head, 60);
     print(head);
-    Node *data = reverseLinkedList(head);
+    Node *data = middleOfll(head);
     print(data);
+    // cout << "Length is: " << getLen(head);
 }
