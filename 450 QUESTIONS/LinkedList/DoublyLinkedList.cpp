@@ -139,6 +139,11 @@ void deleteNode(Node *&head, Node *&tail, int position, int data)
 void Print(Node *head)
 {
     Node *temp = head;
+    if (head == NULL)
+    {
+        cout << "List is empty" << endl;
+        return;
+    }
     while (temp != NULL)
     {
         cout << temp->data << " ";

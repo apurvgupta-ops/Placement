@@ -17,37 +17,48 @@ public:
     }
 };
 
-void insertNodeAtBeginning(Node *&head, int data)
+void insertNode(Node *&head, int element, int data)
 {
-    Node *temp = head;
-    if (temp == NULL)
+    // empty list
+    if (head == NULL)
     {
-        Node *nodeToInsert = new Node(data);
-        head = nodeToInsert;
+        Node *newNode = new Node(data);
+        head = newNode;
+        newNode->next = newNode;
     }
+    // non empty list
     else
     {
-        Node *nodeToInsert = new Node(data);
-        nodeToInsert->next = temp;
-        temp = nodeToInsert;
+        Node *curr = head;
+        while (curr->data != element)
+        {
+            curr = curr->next;
+        }
+        Node *newNode = new Node(data);
+        newNode->next = curr->next;
+        curr->next = newNode;
     }
 }
 
-void appendNode(Node *&head, int data)
+bool isCircular(Node *&head)
 {
-    Node *nodeToInsert = new Node(data);
-    Node *temp = head;
-    if (temp == NULL)
+    if (head == NULL)
     {
-        head = nodeToInsert;
+        cout << "Empty list is a circular list";
+        return false;
     }
     else
     {
-        while (temp->next != NULL)
+        Node *temp = head->next;
+        while (temp != NULL && temp != head)
         {
             temp = temp->next;
         }
-        temp->next = nodeToInsert;
+        if (temp == head)
+        {
+            return true;
+        }
+        return false;
     }
 }
 
@@ -63,30 +74,43 @@ int getLen(Node *&head)
     return count;
 }
 
-void print(Node *head)
+void print(Node *&head)
 {
     Node *temp = head;
-    while (temp != NULL)
+
+    if (head == NULL)
     {
-        cout << temp->data << "->"
-             << " ";
-        temp = temp->next;
+        cout << "List is empty" << endl;
+        return;
     }
-    cout << "NULL";
+    do
+    {
+        cout << head->data
+             << "->"
+             << " ";
+        head = head->next;
+    } while (head != temp);
     cout << endl;
 }
 
 int main()
 {
     Node *head = NULL;
-    insertNodeAtBeginning(head, 10);
+    insertNode(head, 10, 1);
+    insertNode(head, 1, 2);
+    insertNode(head, 2, 3);
+    insertNode(head, 3, 4);
+    insertNode(head, 4, 5);
+
     print(head);
-    appendNode(head, 20);
-    appendNode(head, 30);
-    appendNode(head, 40);
-    appendNode(head, 50);
-    appendNode(head, 60);
-    print(head);
+    if (isCircular(head))
+    {
+        cout << "circular list" << endl;
+    }
+    else
+    {
+        cout << "not circular" << endl;
+    }
 
     // cout << "Length is: " << getLen(head);
 }

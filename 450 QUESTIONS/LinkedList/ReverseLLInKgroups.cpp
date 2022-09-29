@@ -91,6 +91,11 @@ Node *Kreverse(Node *&head, int k)
 void print(Node *head)
 {
     Node *temp = head;
+    if (head == NULL)
+    {
+        cout << "List is empty" << endl;
+        return;
+    }
     while (temp != NULL)
     {
         cout << temp->data << "->"
