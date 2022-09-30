@@ -1,3 +1,6 @@
+// tc = o(n)
+// Sc = o(1)
+
 #include <iostream>
 using namespace std;
 
