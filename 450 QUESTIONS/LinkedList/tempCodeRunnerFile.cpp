@@ -1,4 +1,2 @@
-if (head == NULL)
-    // {
-    //     return;
-    // }
+cout << temp->data << "->"
+            //      << " ";
