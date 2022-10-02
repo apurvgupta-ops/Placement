@@ -77,6 +77,7 @@ int getLen(Node *&head)
 //     return temp;
 // }
 
+// floyde algorithm
 Node *middleOfll(Node *&head)
 {
     if (head == NULL || head->next == NULL)
@@ -89,7 +90,7 @@ Node *middleOfll(Node *&head)
         return head->next;
     }
 
-    Node *fast = head->next;
+    Node *fast = head;
     Node *slow = head;
     while (fast != NULL)
     {
