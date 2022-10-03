@@ -117,7 +117,7 @@ int main()
     appendNode(head, 50);
     appendNode(head, 60);
     print(head);
-    int k = 2;
+    int k = 4;
     Node *data = Kreverse(head, k);
     print(data);
 
