@@ -225,7 +225,7 @@ void explainMultiSet()
 }
 
 // UNORDERED_SET = o(1)
-// SAME AS SET IT STORES IN UNIQUE ORDER BUT NOT SORTED MANNER NO FIX ORDER TO STORING THE ELEMENT
+// SAME AS SET IT STORES UNIQUE ELEMENT BUT NOT SORTED MANNER NO FIX ORDER TO STORING THE ELEMENT ON RANDOMISE ADDRESS
 void explainUnorderdSet()
 {
     unordered_set<int> us;
@@ -233,6 +233,83 @@ void explainUnorderdSet()
     us.insert(2); //{1,2}
     us.insert(4); //{1,4,2}
     us.insert(3); //{1,4,2,3}
+}
+
+// MAP = O(logn)
+// IT STORES THE DATA IN KEY VALUE PAIR, AND IT STORES UNIQUE AND SORTED DATA;
+void explainMap()
+{
+    map<int, int> mp;
+    mp[5] = 2; // IT MEANS THE KEY 1 HAS VALUE 2;
+    mp.insert({1, 2});
+    mp.insert({2, 3});
+    mp.insert({4, 2});
+    mp.insert({3, 2});
+    for (auto i : mp)
+    {
+        cout << i.first << " " << i.second << " " << endl;
+    }
+    auto it = mp.find(3); // IT SEARCH FOR THE KEY 3 AND PRINT THE VALUE;
+}
+
+// MULTIMAP = O(logn)
+void explainMultiMap()
+{
+    // IT STORES THE DATA IN KEY VALUE PAIR, AND IT STORES DUPLICATES ELEMENTS AND SORTED DATA;
+}
+
+// UMORDEREDMAP = O(1)
+void explainUnorderedMap()
+{
+    // IT STORES THE DATA IN KEY VALUE PAIR, AND IT STORES UNIQUE ELEMENTS BUT NOT IN SORTED DATA ON RANDOMISE ADDRESS;
+}
+
+// ALGORITHMS
+bool comp(pair<int, int> p1, pair<int, int> p2)
+{
+    if (p1.second < p2.second)
+        return true;
+    if (p1.second > p2.second)
+        return false;
+    if (p1.first > p2.first)
+        return true;
+    return false;
+}
+
+void explainExtra()
+{
+    int a[] = {1, 4, 2, 3};
+    int n = sizeof(a) / sizeof(a[0]);
+    sort(a, a + n);                 // SORT IN ASCENDING ORDER
+    sort(a, a + n, greater<int>()); // SORT IN DECENDING ORDER
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cout << a[i] << " ";
+    // }
+
+    pair<int, int> p[] = {{1, 2}, {2, 3}, {3, 4}};
+    int n1 = sizeof(p) / sizeof(p[0]);
+    // COMP = WE FIRST SORT IN ASCENDING ORDER ON THE BASES ON SECOND IF THE SECOND IS SAME THE WE SORT IN THE DECENDING ORDER ON THE BASES OF FIRST;
+    sort(p, p + n, comp);
+    // for (int i = 0; i < n1; i++)
+    // {
+    //     cout << p->first << " " << p->second << endl;
+    // }
+
+    // PERMUTATIONS
+    string s = "123";
+    sort(s.begin(), s.end()); // SORT THE STRINGS;
+    // do
+    // {
+    //     cout << s << endl;
+    // } while (next_permutation(s.begin(), s.end()));
+
+    // MAX ELEMENT IN AN ARRAY;
+    int maxElement = *max_element(a, a + n);
+    cout << maxElement << endl;
+
+    int minElement = *min_element(a, a + n);
+    cout << minElement;
 }
 int main()
 {
@@ -245,6 +322,9 @@ int main()
     // explainPriorityQueue(); // PRIORITY QUEUE IS NOT THE LINEAR DATA STRUCTURE IT FOLLOWS THE TREE STRUCTURE;
     // explainSet(); // SET IS NOT THE LINEAR DATA STRUCTURE IT FOLLOWS THE TREE STRUCTURE AND SET INSERT THE DATA IN SORTED AND UNIQUE FORM;
     // explainMultiSet(); // SAME AS SET IT STORES IN SORTED ORDER BUT NOT UNIQUE ELEMENT
-    // explainUnorderdSet(); // SAME AS SET IT STORES IN UNIQUE ORDER BUT NOT SORTED MANNER
-    
+    // explainUnorderdSet(); // SAME AS SET IT STORES UNIQUE ELEMENT BUT NOT SORTED MANNER ON RANDOMISE ADDRESS
+    // explainMap(); // IT STORES THE DATA IN KEY VALUE PAIR, AND IT STORES UNIQUE AND SORTED DATA;
+    // explainMultiMap(); // IT STORES THE DATA IN KEY VALUE PAIR, AND IT STORES DUPLICATES ELEMENTS AND SORTED DATA;
+    // explainUnorderedMap(); // IT STORES THE DATA IN KEY VALUE PAIR, AND IT STORES UNIQUE ELEMENTS BUT NOT IN SORTED DATA ON RANDOMISE ADDRESS;
+    explainExtra();
 }
