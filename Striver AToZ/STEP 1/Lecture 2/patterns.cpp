@@ -3,9 +3,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void printSquare()
+void printSquare(int n)
 {
-    int n = 5;
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
@@ -16,9 +15,8 @@ void printSquare()
     }
 }
 
-void rightAngledTriange()
+void rightAngledTriange(int n)
 {
-    int n = 5;
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < i; j++)
@@ -29,9 +27,8 @@ void rightAngledTriange()
     }
 }
 
-void rightAngledTrianleWithNumber()
+void rightAngledTrianleWithNumber(int n)
 {
-    int n = 5;
     for (int i = 1; i <= n; i++)
     {
         for (int j = 1; j <= i; j++)
@@ -42,9 +39,8 @@ void rightAngledTrianleWithNumber()
     }
 }
 
-void rightAngledTrianleWithSameNumber()
+void rightAngledTrianleWithSameNumber(int n)
 {
-    int n = 5;
     for (int i = 1; i <= n; i++)
     {
         for (int j = 1; j <= i; j++)
@@ -55,12 +51,11 @@ void rightAngledTrianleWithSameNumber()
     }
 }
 
-void reverseRightAngledTriangle()
+void reverseRightAngledTriangle(int n)
 {
-    int n = 5;
     for (int i = 0; i < n; i++)
     {
-        for (int j = 5; j > i; j--)
+        for (int j = n; j > i; j--)
         {
             cout << "*";
         }
@@ -68,9 +63,8 @@ void reverseRightAngledTriangle()
     }
 }
 
-void reverseRightAngledTrianleWithNumber()
+void reverseRightAngledTrianleWithNumber(int n)
 {
-    int n = 5;
     for (int i = 1; i < n; i++)
     {
         for (int j = i; j < n; j++)
@@ -81,9 +75,8 @@ void reverseRightAngledTrianleWithNumber()
     }
 }
 
-void triangle()
+void triangle(int n)
 {
-    int n = 5;
     for (int i = 0; i < n; i++)
     {
         // space
@@ -105,9 +98,8 @@ void triangle()
     }
 }
 
-void reverseTriangle()
+void reverseTriangle(int n)
 {
-    int n = 5;
     for (int i = 0; i < n; i++)
     {
         // space
@@ -129,14 +121,172 @@ void reverseTriangle()
     }
 }
 
+void diamond(int n)
+{
+    // UPPER TRIANGLE
+    for (int i = 0; i <= n; i++)
+    {
+        for (int j = 0; j < (n - i); j++)
+        {
+            cout << " ";
+        }
+
+        for (int j = 0; j < (i * 2) - 1; j++)
+        {
+            cout << "*";
+        }
+
+        for (int j = 0; j < (n - i); j++)
+        {
+            cout << " ";
+        }
+        cout << endl;
+    }
+
+    // LOWER TRIANGLE
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            cout << " ";
+        }
+
+        for (int j = 0; j < (n * 2) - (i * 2 + 1); j++)
+        {
+            cout << "*";
+        }
+
+        for (int j = 0; j < i; j++)
+        {
+            cout << " ";
+        }
+
+        cout << endl;
+    }
+}
+
+void halfDiamond(int n)
+{
+    // UPPER TRIANGLE
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            cout << "*";
+        }
+        cout << endl;
+    }
+
+    // LOWER TRIANGLE
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = n; j > i; j--)
+        {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
+
+void alternateZeroOneInRightTriangleshape(int n)
+{
+    int start;
+    for (int i = 0; i <= n; i++)
+    {
+        if (i % 2 == 0)
+            start = 0;
+        else
+            start = 1;
+
+        for (int j = 0; j < i; j++)
+        {
+            cout << start;
+            start = 1 - start;
+        }
+
+        cout << endl;
+    }
+}
+
+void twoJoinedRightTriangle(int n)
+{
+    int space = (n - 1) * 2;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            cout << j;
+        }
+
+        for (int j = 1; j <= space; j++)
+        {
+            cout << " ";
+        }
+
+        for (int j = i; j >= 1; j--)
+        {
+            cout << j;
+        }
+
+        cout << endl;
+        space -= 2;
+    }
+}
+
+void numberTriangle(int n)
+{
+    int count = 1;
+    for (int i = 0; i <= n; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            cout << count << " ";
+            count++;
+        }
+        cout << endl;
+    }
+}
+
+void alphabaticRightTriangle(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (char j = 'A'; j < 'A' + i; j++)
+        {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+}
+
+void sameAlphabaticRightTriangle(int n)
+{
+    for (char i = 'A'; i < 'A' + n; i++)
+    {
+        for (char j = 'A'; j <= i; j++)
+        {
+            cout << i << " ";
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
-    // printSquare();
-    // rightAngledTriange();
-    // rightAngledTrianleWithNumber();
-    // rightAngledTrianleWithSameNumber();
+    int n = 5;
+    // printSquare(n);
+    // rightAngledTriange(n);
+    // rightAngledTrianleWithNumber(n);
+    // rightAngledTrianleWithSameNumber(n);
     // reverseRightAngledTriangle();
-    // reverseRightAngledTrianleWithNumber();
-    // triangle();
-    reverseTriangle();
+    // reverseRightAngledTrianleWithNumber(n);
+    // triangle(n);
+    // reverseTriangle(n);
+    // diamond(n);
+    // halfDiamond(n);
+    // alternateZeroOneInRightTriangleshape(n);
+    // twoJoinedRightTriangle(n);
+    // numberTriangle(n);
+    // alphabaticRightTriangle(n);
+    sameAlphabaticRightTriangle(n);
 }
