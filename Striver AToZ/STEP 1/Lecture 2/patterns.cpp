@@ -271,6 +271,81 @@ void sameAlphabaticRightTriangle(int n)
     }
 }
 
+void reverseAlphabaticRightTriangle(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (char j = 'A'; j < 'A' + (n - i - 1); j++)
+        {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+}
+
+void alphabaticTriangle(int n)
+{
+    // way 1
+    // for (int i = 0; i < n; i++)
+    // {
+    //     for (int j = 0; j < n - i; j++)
+    //     {
+    //         cout << " ";
+    //     }
+    //     for (char j = 'A'; j < 'A' + i; j++)
+    //     {
+    //         cout << j;
+    //     }
+    //     for (char j = 'A' + i; j >= 'A'; j--)
+    //     {
+    //         cout << j;
+    //     }
+    //     for (int j = 0; j < n - i; j++)
+    //     {
+    //         cout << " ";
+    //     }
+    //     cout << endl;
+    // }
+
+    // way 2
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n - i; j++)
+        {
+            cout << " ";
+        }
+        char ch = 'A';
+        int breakpoint = (i * 2 + 1) / 2;
+        for (int j = 1; j <= (i * 2) + 1; j++)
+        {
+            cout << ch;
+            if (j <= breakpoint)
+                ch++;
+            else
+                ch--;
+        }
+
+        for (int j = 0; j < n - i; j++)
+        {
+            cout << " ";
+        }
+        cout << endl;
+    }
+}
+
+void rightTriangleWithSameDiagonal(int n)
+{
+    int count = n;
+    for (int i = 0; i < n; i++)
+    {
+        for (char j = 'E' - i; j <= 'E'; j++)
+        {
+            cout << j;
+        }
+
+        cout << endl;
+    }
+}
 int main()
 {
     int n = 5;
@@ -288,5 +363,8 @@ int main()
     // twoJoinedRightTriangle(n);
     // numberTriangle(n);
     // alphabaticRightTriangle(n);
-    sameAlphabaticRightTriangle(n);
+    // sameAlphabaticRightTriangle(n);
+    // reverseAlphabaticRightTriangle(n);
+    // alphabaticTriangle(n);
+    rightTriangleWithSameDiagonal(n);
 }
