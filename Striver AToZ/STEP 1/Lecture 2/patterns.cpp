@@ -346,6 +346,43 @@ void rightTriangleWithSameDiagonal(int n)
         cout << endl;
     }
 }
+
+void numberSquareBox(int n)
+{
+    for (int i = 0; i < 2 * n - 1; i++)
+    {
+        for (int j = 0; j < 2 * n - 1; j++)
+        {
+            int top = i;
+            int down = j;
+            int left = (2 * n - 2) - i;
+            int right = (2 * n - 2) - j;
+            int val1 = min(top, down);
+            int val2 = min(left, right);
+            cout << (n - min(val1, val2));
+        }
+        cout << endl;
+    }
+}
+
+void hollowRectangle(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (i == 0 || j == 0 || i == n - 1 || j == n - 1)
+            {
+                cout << "*";
+            }
+            else
+            {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
 int main()
 {
     int n = 5;
@@ -366,5 +403,7 @@ int main()
     // sameAlphabaticRightTriangle(n);
     // reverseAlphabaticRightTriangle(n);
     // alphabaticTriangle(n);
-    rightTriangleWithSameDiagonal(n);
+    // rightTriangleWithSameDiagonal(n);
+    // numberSquareBox(n);
+    hollowRectangle(n);
 }
